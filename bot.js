@@ -1152,5 +1152,5 @@ client.on('message', async message =>{
   }
   let place = 0;
   
-  client.login('NDY2MTQwNTEzMTU0NzYwNzE0.DrZ-Cw.zXSVuaWOfZjmJHIjPNEylmTgA4I'); 
+  client.login(process.env.BOT_TOKEN);
   
