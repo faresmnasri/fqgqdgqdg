@@ -299,41 +299,7 @@ client.on('message', async message =>{
     }
   }
    });
-      
-  client.on('message', message => {
-      var prefix = "*";
-               if (!message.channel.guild) return;
-        if (message.author.bot) return;
-  
-    if (!message.content.startsWith(prefix)) return;
-    let command = message.content.split(" ")[0];
-    command = command.slice(prefix.length);
-    let args = message.content.split(" ").slice(1);
-    
-    if (command === 'inv') {
-      message.guild.fetchInvites().then(invs => {
-        let member = client.guilds.get(message.guild.id).members.get(message.author.id);
-        let personalInvites = invs.filter(i => i.inviter.id === message.author.id);
-        let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
-  message.channel.send(`**you invite ${inviteCount} to this server**`);
-  });
-  }});
-  
-  client.on('message', message => {
-      if (message.author.id === client.user.id) return;
-  if(!message.channel.guild) return
-     let embed = new Discord.RichEmbed()
-      let args = message.content.split(' ').slice(1).join(' ');
-  if(message.content.startsWith( '*' + 'bc')) {
-          message.guild.members.forEach(member => {
-     if(!message.member.hasPermission('ADMINISTRATOR')) return;
-              member.send(`${member} ** ${args}** `);
-  
-          });
-      }
-  
-  });
-  
+     
   
   
   
@@ -721,22 +687,7 @@ client.on('message', async message =>{
       
       });
   
-   let PREFIX = '*' //Prefix Can Be Any 
-  
-  client.on('message', message => { 
-  
-      if (message.content.startsWith(PREFIX + 'emojilist')) {
-  
-          const List = message.guild.emojis.map(e => e.toString()).join(" ");
-  
-          const EmojiList = new Discord.RichEmbed()
-              .setTitle('➠ Emoji\'s') //Title
-              .setAuthor(message.guild.name, message.guild.iconURL) 
-              .setColor('RANDOM')
-              .setDescription(List) 
-              .setTimestamp() 
-              .setFooter(message.guild.name)
-          message.channel.send(EmojiList) 
+   let PREFIX = '*' //Prefix Can Be Any
   
           //------------------------------------------------------------------------------
          
